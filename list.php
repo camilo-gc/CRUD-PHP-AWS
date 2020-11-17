@@ -29,8 +29,8 @@
                         echo '<td>'.$row['titulo'].'</td>';
                         echo '<td>'.$row['f_lanzamiento'].'</td>';
                         echo '<td>'.$row['genero'].'</td>';
-                        echo '<td><a href="update.php?id='.$row['codigo'].'">Actualizar</a></td>';
-                        echo '<td><a href="delete.php?id='.$row['codigo'].'">Eliminar</a></td>';
+                        echo '<td><a href="update.php?codigo='.$row['codigo'].'">Actualizar</a></td>';
+                        echo '<td><a href="delete.php?codigo='.$row['codigo'].'">Eliminar</a></td>';
                     }
                 ?>
             </table>

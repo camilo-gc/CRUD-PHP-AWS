@@ -12,8 +12,8 @@
         $result = $query->execute([
             'codigo'=> $codigo,
             'titulo' => $newTitulo,
-            'f_lanzamiento' => $newF_lanzamiento
-            'genero' => $newGenero,
+            'f_lanzamiento' => $newF_lanzamiento,
+            'genero' => $newGenero
         ]);
         $tituloValue = $newTitulo;
         $f_lanzamientoValue = $newF_lanzamiento;
@@ -22,11 +22,11 @@
         $codigo = $_GET['codigo'];
         $sql = "SELECT * FROM pelicula WHERE codigo=:codigo";
         $query = $pdo->prepare($sql);
-        $result = $query->execute([
-            'codigo'=>$id
+        $query->execute([
+            'codigo'=>$codigo
         ]);
         $row = $query->fetch(PDO::FETCH_ASSOC);
-        $tituloValue = $row['codigo'];
+        $tituloValue = $row['titulo'];
         $f_lanzamientoValue = $row['f_lanzamiento'];
         $generoValue = $row['genero'];
     }
@@ -43,6 +43,11 @@
             <h1>Actualizar Peliculas</h1>
             <hr>
             <a href="list.php">Regresar</a>
+            <?php
+                if ($result) {
+                    echo '<div class="alert alert-success">Satisfactorio!!!</div>';
+                }
+            ?>
             <form action="update.php" method="post">
                 <input type="hidden" name="codigo" id="codigo" value="<?php echo $codigo;?>">
                 <label for="titulo">Titulo: </label>
